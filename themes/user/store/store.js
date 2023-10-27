@@ -139,6 +139,12 @@ Copyright (c) 2010-2014 Exp:resso (support@exp-resso.com)
 
         // calculate the current price
         price = lib.calculatePrice(formdata);
+        if (sku !== false) { // calculate the current price from SKU
+            priceFromSKU = sku.split('-')[1];
+            if ( priceFromSKU !== "" && (parseFloat(priceFromSKU) > 0) ) {
+                price = parseFloat(priceFromSKU);
+            }
+        }
         if (price !== false) {
             price_str = lib.formatCurrency(price);
             $(".store_product_price_val, .store_product_price_inc_tax_val", form).val(price).text(price).trigger("change");
