@@ -1,0 +1,2 @@
+[29-Apr-2021 11:15:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/mastnew/public_html/systemxtr/ee/EllisLab/ExpressionEngine/View/_shared/message.php on line 1
+[29-Apr-2021 11:16:00 UTC] PHP Fatal error:  Call to undefined function lang() in /home/mastnew/public_html/systemxtr/ee/EllisLab/ExpressionEngine/View/_shared/footer.php on line 7

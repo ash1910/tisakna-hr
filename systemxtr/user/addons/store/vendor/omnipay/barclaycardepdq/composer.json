@@ -1,0 +1,32 @@
+{
+    "name": "omnipay/barclaycardepdq",
+    "type": "library",
+    "description": "BarclayCard ePDQ gateway for Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "barclaycard",
+        "epdq",
+        "purchase"
+    ],
+    "homepage": "https://github.com/devdemon/omnipay-barclaycardepdq",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "DevDemon",
+            "homepage": "http://www.devdemon.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\Barclaycardepdq\\" : "src/" }
+    },
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    }
+}

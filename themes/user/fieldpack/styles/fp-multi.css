@@ -1,0 +1,7 @@
+.setting-field label {
+    display: block;
+}
+
+.setting-field label:last-of-type {
+    padding-bottom: 7px;
+}

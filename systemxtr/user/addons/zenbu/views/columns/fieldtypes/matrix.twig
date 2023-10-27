@@ -1,0 +1,36 @@
+{# 
+	matrix_option_1 is "Show matrix in row"
+	Not defined = don't show in row, make a link to it 
+#}
+{% if settings.matrix_option_1 is not defined %}
+	<a rel="modal-e_{{entry_id}}_f_{{field_id}}" class="m-link" href="">{{'show_'|t}}{{'matrix'|t}}</a>
+	<div class="modal-wrap modal-e_{{entry_id}}_f_{{field_id}}">
+		<div class="modal">
+			<div class="col-group">
+				<div class="col w-16">
+					<a class="m-close" href="#"></a>
+					<div class="box">
+{% endif %}
+		
+						<table class="mainTable matrixTable" cellspacing="0" cellpadding="0" border="0">
+							<tr>
+								{% for label in headers %}
+									<th>{{label}}</th>
+								 {% endfor %}
+							</tr>
+							{% for row in rows %}
+								<tr>
+									{% for item in row %}
+							    		<td>{{item}}</td>
+									{% endfor %}
+							    </tr>		    
+							{% endfor %}
+						</table>
+
+{% if settings.matrix_option_1 is not defined %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

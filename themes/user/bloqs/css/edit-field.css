@@ -1,0 +1,12 @@
+.blockselectors {}
+.blockselectors .sortable-placeholder{display:block;width:100%;border:1px dashed #ccc;border-left:none;border-right:none;min-height:24px}
+.blockselectors .blockselector.sortable-dragging:first-child+.sortable-placeholder,
+.blockselectors .sortable-placeholder:first-child{border-top:none;}
+.blockselectors .sortable-placeholder:last-child{border-bottom:none}
+.blockselector {}
+.blockselector+.blockselector{border-top:1px solid #ccc}
+.blockselector .blockselector-handle{width:20px;padding:6px 10px 0px 5px;text-align:center;color:#999;cursor:move}
+.blockselector label input+span{color:#999;text-decoration:line-through}
+.blockselector label input:checked+span{color:#5F6C74;text-decoration:none}
+
+/*# sourceMappingURL=edit-field.css.map */

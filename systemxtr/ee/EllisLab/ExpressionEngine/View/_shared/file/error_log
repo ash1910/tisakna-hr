@@ -1,0 +1,1 @@
+[29-Apr-2021 11:21:24 UTC] PHP Fatal error:  Call to undefined function lang() in /home/mastnew/public_html/systemxtr/ee/EllisLab/ExpressionEngine/View/_shared/file/browser.php on line 31

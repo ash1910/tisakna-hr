@@ -1,0 +1,308 @@
+// http://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content
+.publish_blocks .holder {
+	min-width: 0;
+}
+@-moz-document url-prefix() {
+	.publish_blocks .holder {
+		display: table-cell;
+	}
+}
+
+.invalid {
+	.blocksft {
+		input:not(.btn), textarea, select {
+			background-color: snow;
+			border-color: #dea5a5;
+		}
+	}
+}
+
+.blocksft {
+	background: #f5f6f5;
+	border: 1px solid #c9cfd4;
+	margin-top: 11px;
+
+	.blocksft-block {
+		position: relative;
+		border-bottom: 1px solid #c9cfd4;
+
+		&.sortable-dragging {
+			background: #f5f6f5;
+			border: 1px solid #c9cfd4;
+		}
+
+		&.deleted {
+			display: none;
+		}
+	}
+	.sortable-placeholder {
+		min-height: 26px;
+		background: #ecf1f4;
+		box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, 0.5), inset 0 -8px 8px -8px rgba(0, 0, 0, 0.5);
+	}
+		.blocksft-block-handle {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 14px;
+			text-align: center;
+			padding-top: 11px;
+			cursor: move;
+		}
+		.blocksft-contextbutton {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 44px;
+			border: none;
+			background: none;
+			text-indent: -9999px;
+			cursor: pointer;
+
+			&:before {
+				content: "";
+				position: absolute;
+				width: 14px;
+				height: 14px;
+				border-radius: 100%;
+				border: 1px solid #999;
+				background: none;
+				top: 50%;
+				left: 50%;
+				margin-top: -7px;
+				margin-left: -7px;
+
+				transition: 0.4s background-color;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				border-top: 4px solid #999;
+				border-left: 4px solid transparent;
+				border-right: 4px solid transparent;
+				top: 50%;
+				left: 50%;
+				margin-left: -3px;
+				margin-top: -1px;
+
+				transition: 0.4s border-top-color;
+			}
+
+			&:hover, &:focus {
+				outline: none;
+
+				&:before {
+					background: white;
+
+					transition-duration: 0.2s;
+				}
+
+				&:after {
+					border-top-color: black;
+
+					transition-duration: 0.2s;
+				}
+			}
+		}
+			/* Should apply to all action buttons, but don't apply it to move buttons right now. */
+			.blocksft-actions button.remove {
+				border: none;
+				background: none;
+				text-indent: -9999px;
+				width: 16px;
+				height: 16px;
+				margin: 5px;
+				margin-left: 0;
+			}
+			.blocksft-actions button.remove {
+				background: transparent url(../images/remove.svg) no-repeat 0 0;
+			}
+		.blocksft-header {
+			padding: 1em;
+			padding-left: 16px;
+			position: relative;
+			cursor: pointer;
+		}
+
+		.blocksft-title {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 100%;
+			padding-right: 24px;
+
+			.title {
+				color: #37444d;
+				font-weight: bold;
+			}
+		}
+			.blocksft-instructions {
+				margin-top: 1em;
+				&:before {
+					content: "Instructions: ";
+					font-weight: bold;
+				}
+			}
+
+		.blocksft-content {
+			position: absolute;
+			visibility: hidden;
+			background: #fcfcfc;
+			padding: 0 16px 22px 16px;
+			overflow: hidden;
+		}
+		.blocksft-block .collapsebutton {
+			display: none;
+		}
+		.blocksft-block[data-blockvisibility="expanded"] {
+			.collapsebutton {
+				display: block;
+			}
+			.expandbutton {
+				display: none;
+			}
+			.blocksft-title .summary {
+				display: none;
+			}
+			.blocksft-content {
+				position: static;
+				visibility: visible;
+			}
+		}
+		.blocksft-atom {
+			margin-top: 1em;
+			clear: both;
+
+			.blocksft-atom-name {
+				font-weight: bold;
+			}
+			.blocksft-atom-instructions {
+				font-style: italic;
+			}
+			.blocksft-atomcontainer {
+				margin-top: 6px;
+			}
+			.blocksft-atom-error .notice {
+				color: #ce0000;
+			}
+			em.ee-form-error-message{
+				display: inline-block;
+				float: right;
+			}
+
+			&.invalid {
+				input:not(.btn), textarea, select {
+					background-color: snow;
+					border-color: #dea5a5;
+				}
+			}
+		}
+
+	.blocksft-new {
+		padding: 1em;
+
+		.btn {
+			display: inline-block;
+			margin-top: 5px;
+		}
+	}
+}
+
+.blocksft-contextmenu {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	background: white;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+	z-index: 5;
+	min-width: 200px;
+	cursor: default;
+
+	.sectionheader {
+		color: #999;
+		font-weight: normal;
+		text-transform: uppercase;
+		font-size: 8px;
+		padding: 6px 6px 1px;
+		margin: 0;
+	}
+	button {
+		display: block;
+		border: none;
+		background: none;
+		padding: 4px 6px;
+		margin: 0;
+		width: 100%;
+		text-align: left;
+		cursor: pointer;
+
+		&.warning {
+			//color: #880000;
+			font-weight: normal;
+		}
+
+		&:hover {
+			background: #333;
+			color: white;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+	hr {
+		margin: 0;
+		border: none;
+		height: 1px;
+		background: #ccc;
+	}
+	.multistep {
+		.step2 {
+			display: none;
+			padding: 0 6px;
+
+			button {
+				display: inline-block;
+				width: auto;
+			}
+		}
+
+		&[data-currentstep="2"] {
+			.step1 {
+				display: none;
+			}
+			.step2 {
+				display: block;
+			}
+		}
+
+		@supports (transform: translate(0, 0)) {
+			overflow: hidden;
+
+			.multistep-container {
+				position: relative;
+				transition: 0.2s transform;
+				transform: translate(0, 0);
+			}
+			.step2 {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 100%;
+				width: 100%;
+			}
+
+			&[data-currentstep="2"] {
+				.multistep-container {
+					transform: translate(-100%, 0);
+				}
+				.step1 {
+					display: block;
+				}
+			}
+		}
+	}
+}

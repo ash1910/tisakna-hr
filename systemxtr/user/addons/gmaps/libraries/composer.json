@@ -1,0 +1,6 @@
+{
+    "require": {
+        "kriswallsmith/buzz": "^0.15.0",
+        "willdurand/geocoder": "^3.3.0"
+    }
+}

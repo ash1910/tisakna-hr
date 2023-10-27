@@ -1,0 +1,11 @@
+.cf-test_location {
+    display: block;
+    padding: 0 0 0 20px;
+    margin: 0 0 10px;
+    height: 16px;
+    background: url(../img/test.png) no-repeat;
+    line-height: 16px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}

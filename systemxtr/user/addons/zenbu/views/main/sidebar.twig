@@ -1,0 +1,36 @@
+<div class="col w-4 {% if not sidebar_hidden %}show-sidebar-on-load{% endif %}" style="display: none;">
+	<div class="box sidebar">
+		<h2 class="{% if current is not defined %}act{% endif %}"><a href="{{zenbuUrl()}}">{{'entries'|t}}</a></h2>
+		<h2>{{'manage'|t}}</h2>
+		<ul>
+			<li class="{% if current == 'saved_searches' %}act{% endif %}"><a href="{{zenbuUrl('saved_searches')}}">{{'saved_searches_list'|t}}</a></li>
+			{% if permissions.can_access_settings == 'y' or user.group_id == 1 %}
+			<li class="{% if current == 'display_settings' %}act{% endif %}"><a href="{{zenbuUrl('display_settings')}}">{{'display_settings'|t}}</a></li>
+			{% endif %}
+			{% if permissions.can_admin == 'y' or user.group_id == 1  %}
+			<li class="{% if current == 'permissions' %}act{% endif %}"><a href="{{zenbuUrl('permissions')}}">{{'permissions'|t}}</a></li>
+			{% endif %}
+		</ul>
+
+		<h2 id="savedSearchesListTitle" {% if savedSearches.items is empty %}style="display: none"{% endif %}><i class="fa fa-search"></i> {{"saved_searches_list"|t}}</h2>
+		<ul id="savedSearchesList" {% if savedSearches.items is empty %}style="display: none"{% endif %}>
+		{% if savedSearches.items is not empty %}
+			{% for search in savedSearches.items %}
+				<li><a href="{{ zenbuUrl('fetch_search_filters&searchId='~search.id) }}" data-searchId="{{search.id}}">{{search.label | default('-')}}</a></li>
+			{% endfor %}
+		{% endif %}
+		</ul>
+
+		<h2><i class="fa fa-save"></i> {{"Save this search"|t}}</h2>
+		<form id="saveSearch" action="{{save_search_action_url}}" method="post">
+			<fieldset>
+
+				<input type="text" class="text" name="label" value="" placeholder="{{'Search name'|t}}" />
+
+				<button type="submit" class="btn submit small"><span>{{ "Save Search"|t }}</span><span style="display: none">{{"Saving"|t}} <i class="fa fa-spinner fa-pulse"></i></span></button>
+			</fieldset>
+		</form>
+
+		{{after_save_search}}
+	</div>
+</div>

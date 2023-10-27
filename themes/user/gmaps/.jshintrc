@@ -1,0 +1,23 @@
+{
+    "maxerr": 1000,
+    "sub": true,
+    "globals": {
+        "window": false,
+        "document": false,
+        "$": false,
+        "jQuery": false,
+        "_": false,
+        "moment": false,
+        "GMaps": false,
+        "google": false,
+        "createUUID": false,
+        "setTimeout": false,
+        "gmaps_remove_empty_values": false,
+        "escape": false,
+        "decodeURIComponent": false,
+        "base64_decode": false,
+        "MarkerClusterer": false,
+        "console": false,
+        "alert": false
+    }
+}

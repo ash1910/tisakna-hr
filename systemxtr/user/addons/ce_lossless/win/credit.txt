@@ -1,0 +1,15 @@
+#optipng.exe
+	* download: http://prdownloads.sourceforge.net/optipng/optipng-0.7.1-win32.zip?download
+	* homepage: http://optipng.sourceforge.net
+
+#jpegtran.exe
+	* download: http://jpegclub.org/jpegtran.exe
+	* homepage: http://jpegclub.org/jpegtran
+
+#pngcrush.exe
+	* download: http://sourceforge.net/projects/pmt/files/pngcrush-executables/1.7.15/pngcrush-1.7.15-win32.zip/download
+	* homepage: http://pmt.sourceforge.net/pngcrush
+
+#pngquant.exe
+	* download: http://pngquant.org/
+	* homepage: http://pngquant.org/

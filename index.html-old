@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<head>
+
+		<!-- Basic -->
+		<meta charset="utf-8">
+		<title>TISAK NAŠICE</title>
+		<meta name="keywords" content="TISAK NAŠICE" />
+		<meta name="description" content="TISAK NAŠICE">
+		<meta name="author" content="TISAK NAŠICE">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300,300italic,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		
+<style>
+body {background:#ccc;color:#555;font-family:'Open Sans'}
+a {color:#fff}
+.container {margin:50px auto 0 auto; text-align:center}
+.main {width:90%; margin:0 auto; text-align:center; font-size:16px;}
+h1 {font-size:50px}
+img {max-width:100%}
+
+@media (max-width: 767px) {
+    h1 {font-size:40px;font-weight:300}
+}
+</style>
+
+	</head>
+	<body>
+
+
+<header>
+</header>
+<div class="main" style="margin-top:100px">
+<!--<img src="http://tisakna.hr/slike/tisak-bg.png" alt="TISAK NAŠICE" title="TISAK NAŠICE" />-->
+<br />
+<br />
+<h1 style="font-weight:300">USKORO - TISAK NAŠICE</h1>
+<b>Kontaktirajte nas:</b> <a href="mailto:tisak@tisak-nasice.hr">tisak@tisak-nasice.hr</a>
+<br />
+<br />
+<br />
+
+</div>
+
+
+	</body>
+</html>

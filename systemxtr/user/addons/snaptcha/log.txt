@@ -1,0 +1,2 @@
+2017-07-27T12:48:42+02:00 Rejected form submission at http://masterkruno.wmd.hr/my-account/login from 93.142.13.212 (Snaptcha field not found)
+2019-02-28T15:03:15+01:00 Rejected form submission at https://masterkruno.wmd.hr/kontakt-informacije/ from 93.142.24.130 (Snaptcha field not equal to unique secret)

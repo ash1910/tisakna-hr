@@ -1,0 +1,225 @@
+.tbl-ctrls {
+	position: relative;
+}
+
+.da-create-menu {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.da-create-menu .filters {
+	position: relative;
+	z-index: 2;
+}
+
+.da-create-menu .filters li {
+	background: #FFF;
+}
+
+.da-col-group {
+	margin-bottom: 20px;
+}
+
+.da-comment-alert {
+	border-color: #ffea8d;
+	border-width: 0 1px;
+	padding: 10px 10px 0;
+}
+
+.da-comment-alert .alert {
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.da-realtime-outer {
+	min-height: 130px;
+	position: relative;
+}
+
+.da-rt-col .box {
+	background: #F9F9F9;	
+}
+
+.da-rt-col .da-table th {
+	background: #1f80bd;
+	color: #FFF;
+}
+
+.da-rt-users .box {
+	background: #FFF;
+	padding: 16px 10px 10px;
+	text-align: center;	
+}
+
+.da-active-users {
+	font-size: 12px;
+	line-height: 16px;
+	padding-bottom: 15px;
+}
+
+.da-active-users strong {
+	display: block;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 72px;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 72px;
+}
+
+.da-rt-devices {
+	height: 28px;
+}
+
+.da-rt-devices span {
+	border-right: 1px solid #FFF;
+	box-sizing: border-box;
+	float: left;
+	font-size: 11px;
+	line-height: 14px;
+	padding: 8px 0;
+}
+
+.da-rt-devices span:last-child {
+	border-right: 0;
+}
+
+.da-rt-devices .desktop, .da-rt-device-legend .desktop {
+	background: #1f80bd;
+	color: #FFF;
+}
+
+.da-rt-devices .tablet, .da-rt-device-legend .tablet {
+	background: #e5f7bf;
+}
+
+.da-rt-devices .mobile, .da-rt-device-legend .mobile {
+	background: #7baf55;
+	color: #FFF;
+}
+
+.da-rt-device-legend {
+	border: 0;
+	margin: 0;
+	padding-top: 4px;
+}
+
+.da-rt-device-legend li {
+	display: inline;
+	font-size: 10px;
+	line-height: 14px;
+	margin: 0 6px 0 0;
+	padding: 0;
+}
+
+.da-rt-device-legend span {
+	border: 1px solid #FFF;
+	display: inline-block;
+	height: 12px;
+	margin-right: 2px;
+	vertical-align: middle;
+	width: 12px;
+}
+
+.da-stat-panel {
+	border-radius: 0;
+	border-width: 0;
+	box-shadow: none;
+	margin-bottom: 0;
+}
+
+.da-monthly-outer {
+	min-height: 800px;
+	position: relative;
+}
+
+.da-stat-panel td {
+	width: 50%;
+}
+
+.da-stat-col {
+	color: gray;
+}
+
+.da-stat-col strong {
+	color: #000;
+	font: bold 18px/18px Arial, Helvetica, sans;
+	font-style: normal;
+}
+
+.da-sparkline {
+	height: 30px;
+	width: 100%;
+}
+
+.da-table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.da-table th {
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	font-size: 12px;
+	line-height: 15px;
+	padding: 7px 10px;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.da-table td {
+	font-size: 12px;
+	line-height: 15px;
+	padding: 7px 10px;
+	vertical-align: middle;
+}
+
+.da-label-col {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 70%;
+}
+
+.da-label-col .flag-icon {
+	box-shadow: 0 0 1px #888;
+	height: 1em;
+	margin-right: 8px;
+}
+
+.da-count-col {
+	overflow: hidden;
+	text-align: right;
+	width: 30%;
+}
+
+td.da-count-col {
+	color: gray;
+}
+
+.da-count-col strong {
+	color: #000;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.da-more {
+	text-align: center;
+}
+
+td.da-no-data {
+	text-align: center;
+}
+
+.da-error {
+	font-style: italic;
+	text-align: center;
+}
+
+@media screen and (max-width:750px) {
+
+.da-create-menu {
+	position: static;
+}
+	
+}

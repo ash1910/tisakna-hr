@@ -1,0 +1,1 @@
+[29-Apr-2021 11:15:22 UTC] PHP Fatal error:  Using $this when not in object context in /home/mastnew/public_html/systemxtr/ee/EllisLab/ExpressionEngine/View/_shared/file_upload/index.php on line 1
