@@ -485,6 +485,72 @@ class Simple_cloner_ext {
 					}
 				}
 			}
+			// Store Field
+			foreach($data as $key => $value) {
+				if(strpos($key, 'field_id') !== FALSE)
+				{
+					// Get field ID number to query exp_channel_fields table.
+					$field_id = explode('field_id_', $key);
+					$field_id = $field_id[1];
+
+					$store_fields = ee()->db->query("SELECT field_id, field_name FROM exp_channel_fields WHERE field_id = " . $field_id . " AND field_type = 'store'");
+
+					if($store_fields->num_rows != 0)
+					{
+						$store_fields = $store_fields->result();
+
+						$modifiers = $product_mod_ids = $options = $stocks = array();
+
+						//echo "<pre>";print_r($store_fields);exit;
+
+						$exp_store_products = ee()->db->from("exp_store_products")->where('entry_id', $data['entry_id'])->get()->row_array();
+						$exp_store_products['entry_id'] = $entry_id_of_duplicate;
+						ee()->db->insert('exp_store_products', $exp_store_products);
+
+						$exp_store_product_modifiers = ee()->db->from("exp_store_product_modifiers")->where('entry_id', $data['entry_id'])->get()->result_array();
+						foreach ($exp_store_product_modifiers as $key => $row) {
+							$exp_store_product_modifier = $row;
+							$exp_store_product_modifier['entry_id'] = $entry_id_of_duplicate;
+							unset($exp_store_product_modifier['product_mod_id']);
+							ee()->db->insert('exp_store_product_modifiers', $exp_store_product_modifier);
+							$modifiers[$row['product_mod_id']] = ee()->db->insert_id();
+							$product_mod_ids[] = $row['product_mod_id'];
+						}
+
+						$exp_store_product_options = ee()->db->from("exp_store_product_options")->where_in('product_mod_id', $product_mod_ids)->get()->result_array();
+						foreach ($exp_store_product_options as $key => $row) {
+							$exp_store_product_option = $row;
+							$exp_store_product_option['product_mod_id'] = $modifiers[$row['product_mod_id']];
+							unset($exp_store_product_option['product_opt_id']);
+							ee()->db->insert('exp_store_product_options', $exp_store_product_option);
+							$options[$row['product_opt_id']] = ee()->db->insert_id();
+						}
+
+						$exp_store_stocks = ee()->db->from("exp_store_stock")->where('entry_id', $data['entry_id'])->get()->result_array();
+						foreach ($exp_store_stocks as $key => $row) {
+							$exp_store_stock = $row;
+							$exp_store_stock['entry_id'] = $entry_id_of_duplicate;
+							unset($exp_store_stock['id']);
+							ee()->db->insert('exp_store_stock', $exp_store_stock);
+							$stocks[$row['id']] = ee()->db->insert_id();
+						}
+
+						$exp_store_stock_options = ee()->db->from("exp_store_stock_options")->where('entry_id', $data['entry_id'])->get()->result_array();
+						foreach ($exp_store_stock_options as $key => $row) {
+							$exp_store_stock_option = $row;
+							$exp_store_stock_option['entry_id'] = $entry_id_of_duplicate;
+							$exp_store_stock_option['stock_id'] = $stocks[$row['stock_id']];
+							$exp_store_stock_option['product_mod_id'] = $modifiers[$row['product_mod_id']];
+							$exp_store_stock_option['product_opt_id'] = $options[$row['product_opt_id']];
+							unset($exp_store_stock_option['id']);
+							ee()->db->insert('exp_store_stock_options', $exp_store_stock_option);
+						}
+
+
+					}
+				}
+			}
+			// End Store Field
 
 			ee()->db->update(
 				'exp_simple_cloner_content',
