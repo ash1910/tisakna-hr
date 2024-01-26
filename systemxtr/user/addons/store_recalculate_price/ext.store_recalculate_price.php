@@ -106,7 +106,8 @@ class Store_recalculate_price_ext {
 		if(!empty($item->sku)){
 			$price_from_sku = explode("-", $item->sku);
 			if( !empty(@$price_from_sku) && !empty(@$price_from_sku[1]) ){
-				$price_new = (float)$price_from_sku[1];
+				//$price_new = (float)$price_from_sku[1]; 
+				$price_new = str_replace(array('.',','), array('','.'), trim($price_from_sku[1]));
 				if($price_new > 0){
 					$item->price = $price_new;
 					$item->item_total = $item->item_subtotal = $item->price * $item->item_qty;
