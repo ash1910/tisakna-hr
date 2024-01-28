@@ -141,7 +141,9 @@ Copyright (c) 2010-2014 Exp:resso (support@exp-resso.com)
         price = lib.calculatePrice(formdata);
         if (sku !== false) { // calculate the current price from SKU
             priceFromSKU = sku.split('-')[1];
-            if ( priceFromSKU !== "" && (parseFloat(priceFromSKU) > 0) ) {
+            if ( priceFromSKU !== "") {
+                priceFromSKU = priceFromSKU.replace(".", "").replace(",", ".");
+                //price = price.replace(",", ".");
                 price = parseFloat(priceFromSKU);
             }
         }
